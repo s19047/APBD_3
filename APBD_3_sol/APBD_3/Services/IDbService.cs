@@ -10,5 +10,7 @@ namespace APBD_3.Services
     {
 
         public IEnumerable<Student> getStudents();
+        public void deleteStudent(int id);
+        public void UpdateStudent(Student s);
     }
 }

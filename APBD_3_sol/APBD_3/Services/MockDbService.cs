@@ -23,5 +23,19 @@ namespace APBD_3.Services
         {
             return _students;
         }
+
+        public void deleteStudent(int id)
+        {
+            _students = _students.Where(u => u.IdStudent != id).ToList();
+
+        }
+
+        public void UpdateStudent(Student s)
+        {
+            Student student = _students.First(uS => uS.IdStudent ==s.IdStudent);
+            _students = _students.Where(u => u.IdStudent != s.IdStudent).ToList();
+            _students.Append(student);
+
+        }
     }
 }

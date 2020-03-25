@@ -47,6 +47,19 @@ namespace APBD_3.Controllers
             student.IndexNumber = $"s{new Random().Next(1,20000)}";
             return Ok(student);
         }
+        [HttpDelete]
+        public IActionResult DeleteStudent(int id)
+        {
+            
+            _DbService.deleteStudent(id);
+            return Ok("Delete completed");
+        }
+        [HttpPost]
+        public IActionResult UpdateStudent(Student student)
+        {
+            student.IndexNumber = $"s{new Random().Next(1, 20000)}";
+            return Ok(student);
+        }
 
     }
 }
