@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APBD_3.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,7 @@ namespace APBD_3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<IDbService, MockDbService>();
             services.AddControllers();
         }
 
@@ -36,7 +38,7 @@ namespace APBD_3
             }
             //chain of processing units that process our request 
 
-            app.Run(async con => { con.Response.Headers.Add("Secret", "jkshdkj"); });
+           
 
             app.UseRouting();
 
