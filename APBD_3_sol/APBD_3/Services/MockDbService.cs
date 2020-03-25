@@ -32,9 +32,13 @@ namespace APBD_3.Services
 
         public void UpdateStudent(Student s)
         {
-            Student student = _students.First(uS => uS.IdStudent ==s.IdStudent);
-            _students = _students.Where(u => u.IdStudent != s.IdStudent).ToList();
-            _students.Append(student);
+            var obj = _students.FirstOrDefault(x => x.IdStudent == s.IdStudent);
+            if (obj != null)
+            {
+                obj.FirstName = s.FirstName;
+                obj.LastName = s.LastName;
+                obj.IndexNumber = s.IndexNumber;
+            }
 
         }
     }
