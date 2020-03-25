@@ -57,8 +57,8 @@ namespace APBD_3.Controllers
         [HttpPut]
         public IActionResult UpdateStudent(Student student)
         {
-            student.IndexNumber = $"s{new Random().Next(1, 20000)}";
-            return Ok(student);
+            _DbService.UpdateStudent(student);
+            return Ok("Update completed");
         }
 
     }
