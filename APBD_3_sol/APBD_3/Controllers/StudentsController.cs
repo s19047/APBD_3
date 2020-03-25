@@ -54,6 +54,11 @@ namespace APBD_3.Controllers
             _DbService.deleteStudent(id);
             return Ok("Delete completed");
         }
+
+        //I realize the task said that id should be inputted 
+        //however i feel like having a student inputed makes more sense
+        //since i want to be able to update things like first or last name
+
         [HttpPut]
         public IActionResult UpdateStudent(Student student)
         {
